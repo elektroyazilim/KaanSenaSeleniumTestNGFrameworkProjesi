@@ -7,6 +7,7 @@ public class PomManager extends Annotations{
     private RegisterPage registerPage;
 
     private SuccessPage successPage;
+    private LambdaRegisterPage lambdaRegisterPage;
 
 
     public Homepage getHomepage() {
@@ -22,6 +23,10 @@ public class PomManager extends Annotations{
     public SuccessPage getSuccessPage() {
 
         return successPage == null ? new SuccessPage() : successPage;
+    }
+    public LambdaRegisterPage getLambdaRegisterPage() {
+
+        return lambdaRegisterPage == null ? new LambdaRegisterPage() : lambdaRegisterPage;
     }
 
 
