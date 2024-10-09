@@ -357,6 +357,27 @@ public class BrowserUtils {
 
         js.executeScript(jsCode);
     }
+
+    public static void hoverXYByJs(int x, int y) {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        String jsCode = "const simulateHover = (x, y) => {\n" +
+                "  const event = new MouseEvent('mouseover', {\n" +
+                "    view: window,\n" +
+                "    bubbles: true,\n" +
+                "    cancelable: true,\n" +
+                "    screenX: x,\n" +
+                "    screenY: y\n" +
+                "  });\n" +
+                "\n" +
+                "  const element = document.elementFromPoint(x, y);\n" +
+                "  element.dispatchEvent(event);\n" +
+                "};\n" +
+                "\n" +
+                "simulateHover(" + x + ", " + y + ");";
+
+        js.executeScript(jsCode);
+    }
+
     /*        js.executeScript(
                 const simulateClick = (x, y) => {
   				const event = new MouseEvent('click', {
