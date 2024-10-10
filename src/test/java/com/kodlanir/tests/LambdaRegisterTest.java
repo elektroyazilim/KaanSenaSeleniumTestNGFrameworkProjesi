@@ -2,7 +2,6 @@ package com.kodlanir.tests;
 
 import com.kodlanir.pages.PomManager;
 import com.kodlanir.utils.Config;
-import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -17,7 +16,7 @@ public class LambdaRegisterTest extends PomManager {
         Assert.assertTrue(driver.getCurrentUrl().contains(url));
 
         Actions act = new Actions(driver);
-        act.moveToElement(getHomepage().myAccountMenu).build().perform();
+        act.moveToElement(getHomepage().myAccountMenu).perform();
         
         getLambdaRegisterPage().registerBtn.click();
 
@@ -32,8 +31,6 @@ public class LambdaRegisterTest extends PomManager {
         getLambdaRegisterPage().yesRadioBtn.click();
         getLambdaRegisterPage().policyCheckBox.click();
         getLambdaRegisterPage().continueBtn.click();
-
-        getLambdaRegisterPage().email.click();
 
         Assert.assertEquals(getSuccessPage().successText.getText(), "Your Account Has Been Created!");
 
