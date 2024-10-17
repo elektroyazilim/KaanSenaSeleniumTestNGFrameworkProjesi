@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LambdaLoginPage extends Base{
-    @FindBy(xpath = "//ul[contains(@class, 'mz-sub-menu-96')]//li[1]//a//div")
+    @FindBy(xpath = "//ul[contains(@class,'show')]//*[contains(text(),'Login')]")
     public WebElement loginBtn;
 
     @FindBy(id = "input-email")
@@ -15,4 +15,19 @@ public class LambdaLoginPage extends Base{
 
     @FindBy(css = "input[value='Login']")
     public WebElement submitButton;
+
+    @FindBy(xpath = "//a[text()=' Wish List']")
+    public WebElement loginControlBtn;
+
+    public void seteMail(String email){
+        eMail.sendKeys(email);
+    }
+
+    public void setPassWord(String psw){
+        passWord.sendKeys(psw);
+    }
+
+    public void setSubmitButton(){
+        submitButton.click();
+    }
 }

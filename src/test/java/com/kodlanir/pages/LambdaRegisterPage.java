@@ -3,6 +3,8 @@ package com.kodlanir.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.stream.Stream;
+
 public class LambdaRegisterPage extends Base{
     @FindBy(xpath = "//ul[@class='mz-sub-menu-96 dropdown-menu show']//li[@class][2]//a[@class='icon-left both dropdown-item']//div[1]//span[@class='title']")
     public WebElement registerBtn;
@@ -34,4 +36,39 @@ public class LambdaRegisterPage extends Base{
     @FindBy(css = "input[value='Continue']")
     public WebElement continueBtn;
 
+    public void setFirstName(String name){
+        firstName.sendKeys(name);
+    }
+
+    public void setLastName(String surname){
+        lastName.sendKeys(surname);
+    }
+
+    public void setEmail(String eMail){
+        email.sendKeys(eMail);
+    }
+
+    public void setPhone(String phoneNumber){
+        phone.sendKeys(phoneNumber);
+    }
+
+    public void setPassword(String psw){
+        password.sendKeys(psw);
+    }
+
+    public void setRePassword(String rePsw){
+        rePassword.sendKeys(rePsw);
+    }
+
+    public void setPolicyCheckBox(){
+        policyCheckBox.click();
+    }
+
+    public void setYesRadioBtn(){
+        yesRadioBtn.click();
+    }
+
+    public void setContinueBtn(){
+        continueBtn.click();
+    }
 }

@@ -7,5 +7,6 @@ public abstract class Base {
     public Base() {
 
         PageFactory.initElements(Driver.getDriver(), this);
+
     }
 }

@@ -1,8 +1,8 @@
 package com.kodlanir.tests;
 
 import com.kodlanir.pages.PomManager;
+import com.kodlanir.utils.BrowserUtils;
 import com.kodlanir.utils.Config;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,20 +15,16 @@ public class LambdaLoginTest extends PomManager{
 
         Assert.assertTrue(driver.getCurrentUrl().contains(url));
 
-        Actions act = new Actions(driver);
-        act.moveToElement(getHomepage().myAccountMenu).perform();
-
+        BrowserUtils.moveToElement(getHomepage().myAccountMenu);
         getLambdaLoginPage().loginBtn.click();
 
         Assert.assertTrue(driver.getCurrentUrl().contains("account/login"));
 
-        getLambdaLoginPage().eMail.sendKeys("senatest2@gmail.com");
-        getLambdaLoginPage().passWord.sendKeys("12345");
-        getLambdaLoginPage().submitButton.click();
+        getLambdaLoginPage().seteMail("senatest2@gmail.com");
+        getLambdaLoginPage().setPassWord("12345");
+        getLambdaLoginPage().setSubmitButton();
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("account/account"));
-
-        driver.close();
+        Assert.assertEquals(getLambdaLoginPage().loginControlBtn.getText(), "Wish List");
     }
 
     @Test
@@ -38,20 +34,16 @@ public class LambdaLoginTest extends PomManager{
 
         Assert.assertTrue(driver.getCurrentUrl().contains(url));
 
-        Actions act = new Actions(driver);
-        act.moveToElement(getHomepage().myAccountMenu).perform();
-
+        BrowserUtils.moveToElement(getHomepage().myAccountMenu);
         getLambdaLoginPage().loginBtn.click();
 
         Assert.assertTrue(driver.getCurrentUrl().contains("account/login"));
 
-        getLambdaLoginPage().eMail.sendKeys("senatest2@gmail.com");
-        getLambdaLoginPage().passWord.sendKeys("123456"); //yanlış
-        getLambdaLoginPage().submitButton.click();
+        getLambdaLoginPage().seteMail("senatest2@gmail.com");
+        getLambdaLoginPage().setPassWord("123456"); //yanlış
+        getLambdaLoginPage().setSubmitButton();
 
         Assert.assertFalse(driver.getCurrentUrl().contains("account/account"));
-
-        driver.close();
     }
 
     @Test
@@ -61,9 +53,7 @@ public class LambdaLoginTest extends PomManager{
 
         Assert.assertTrue(driver.getCurrentUrl().contains(url));
 
-        Actions act = new Actions(driver);
-        act.moveToElement(getHomepage().myAccountMenu).perform();
-
+        BrowserUtils.moveToElement(getHomepage().myAccountMenu);
         getLambdaLoginPage().loginBtn.click();
 
         Assert.assertTrue(driver.getCurrentUrl().contains("account/login"));
@@ -72,8 +62,10 @@ public class LambdaLoginTest extends PomManager{
         getLambdaLoginPage().passWord.sendKeys("12345");
         getLambdaLoginPage().submitButton.click();
 
-        Assert.assertFalse(driver.getCurrentUrl().contains("account/account"));
+        getLambdaLoginPage().seteMail("senatest29@gmail.com"); //yanlış
+        getLambdaLoginPage().setPassWord("12345");
+        getLambdaLoginPage().setSubmitButton();
 
-        driver.close();
+        Assert.assertFalse(driver.getCurrentUrl().contains("account/account"));
     }
 }

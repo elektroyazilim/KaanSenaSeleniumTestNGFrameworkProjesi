@@ -14,6 +14,8 @@ import org.testng.Assert;
 import java.time.Duration;
 import java.util.*;
 
+import static com.kodlanir.pages.Annotations.driver;
+
 
 public class BrowserUtils {
 
@@ -23,6 +25,12 @@ public class BrowserUtils {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void moveToElement(WebElement element)
+    {
+        Actions act = new Actions(driver);
+        act.moveToElement(element).perform();
     }
 
     // explicit wait, visibility of element, condition
