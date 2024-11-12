@@ -16,7 +16,7 @@ public class LambdaRegisterTest extends PomManager {
         Assert.assertTrue(driver.getCurrentUrl().contains(url));
 
         BrowserUtils.moveToElement(getHomepage().myAccountMenu);
-        getLambdaRegisterPage().registerBtn.click();
+        getLambdaRegisterPage().clickRegisterMenuBtn();
 
         Assert.assertTrue(driver.getCurrentUrl().contains("account/register"));
 

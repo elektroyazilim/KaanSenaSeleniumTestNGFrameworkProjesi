@@ -1,6 +1,8 @@
 package com.kodlanir.pages;
 
 
+import com.kodlanir.utils.BrowserUtils;
+
 public class PomManager extends Annotations{
 
     private Homepage homepage;
@@ -8,6 +10,7 @@ public class PomManager extends Annotations{
     private SuccessPage successPage;
     private LambdaRegisterPage lambdaRegisterPage;
     private LambdaLoginPage lambdaLoginPage;
+    private LambdaCartPage lambdaCartPage;
 
     public Homepage getHomepage() {
 
@@ -31,5 +34,9 @@ public class PomManager extends Annotations{
 
     public LambdaLoginPage getLambdaLoginPage(){
         return lambdaLoginPage == null ? new LambdaLoginPage() : lambdaLoginPage;
+    }
+
+    public LambdaCartPage getLambdaCartPage(){
+        return lambdaCartPage == null ? new LambdaCartPage() : lambdaCartPage;
     }
 }

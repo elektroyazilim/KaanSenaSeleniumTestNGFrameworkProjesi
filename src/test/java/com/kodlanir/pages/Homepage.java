@@ -16,8 +16,4 @@ public class Homepage extends Base{
 
     @FindBy(css = "a[href*='account/register']")
     public WebElement registerOpt;
-
-
-
-
 }

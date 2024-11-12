@@ -1,5 +1,6 @@
 package com.kodlanir.pages;
 
+import com.kodlanir.utils.BrowserUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -7,34 +8,40 @@ import java.util.stream.Stream;
 
 public class LambdaRegisterPage extends Base{
     @FindBy(xpath = "//ul[@class='mz-sub-menu-96 dropdown-menu show']//li[@class][2]//a[@class='icon-left both dropdown-item']//div[1]//span[@class='title']")
-    public WebElement registerBtn;
+    private WebElement registerMenuBtn;
 
     @FindBy(id = "input-firstname")
-    public WebElement firstName;
+    private WebElement firstName;
 
     @FindBy(id = "input-lastname")
-    public WebElement lastName;
+    private WebElement lastName;
 
     @FindBy(id = "input-email")
-    public WebElement email;
+    private WebElement email;
 
     @FindBy(id = "input-telephone")
-    public WebElement phone;
+    private WebElement phone;
 
     @FindBy(id = "input-password")
-    public WebElement password;
+    private WebElement password;
 
     @FindBy(id = "input-confirm")
-    public WebElement rePassword;
+    private WebElement rePassword;
 
     @FindBy(css = "div.custom-checkbox")
-    public WebElement policyCheckBox;
+    private WebElement policyCheckBox;
 
     @FindBy(xpath = "//label[@for='input-newsletter-yes']")
-    public WebElement yesRadioBtn;
+    private WebElement yesRadioBtn;
 
     @FindBy(css = "input[value='Continue']")
-    public WebElement continueBtn;
+    private WebElement continueBtn;
+
+    public void clickRegisterMenuBtn()
+    {
+        BrowserUtils.waitForVisibility(registerMenuBtn,5);
+        registerMenuBtn.click();
+    }
 
     public void setFirstName(String name){
         firstName.sendKeys(name);

@@ -33,6 +33,12 @@ public class BrowserUtils {
         act.moveToElement(element).perform();
     }
 
+    public static void moveToXY(WebElement element, int horizontal, int vertical)
+    {
+        Actions act = new Actions(driver);
+        act.moveToElement(element,2,0).build().perform();
+    }
+
     // explicit wait, visibility of element, condition
     public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeToWaitInSec));

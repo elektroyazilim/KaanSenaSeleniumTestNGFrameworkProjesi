@@ -16,15 +16,15 @@ public class LambdaLoginTest extends PomManager{
         Assert.assertTrue(driver.getCurrentUrl().contains(url));
 
         BrowserUtils.moveToElement(getHomepage().myAccountMenu);
-        getLambdaLoginPage().loginBtn.click();
+        getLambdaLoginPage().clickLoginMenuBtn();
 
         Assert.assertTrue(driver.getCurrentUrl().contains("account/login"));
 
         getLambdaLoginPage().seteMail("senatest2@gmail.com");
         getLambdaLoginPage().setPassWord("12345");
-        getLambdaLoginPage().setSubmitButton();
+        getLambdaLoginPage().clickSubmitButton();
 
-        Assert.assertEquals(getLambdaLoginPage().loginControlBtn.getText(), "Wish List");
+        Assert.assertEquals(getLambdaLoginPage().getLoginControlBtnText(), "Wish List");
     }
 
     @Test
@@ -33,15 +33,14 @@ public class LambdaLoginTest extends PomManager{
         driver.get(url);
 
         Assert.assertTrue(driver.getCurrentUrl().contains(url));
-
         BrowserUtils.moveToElement(getHomepage().myAccountMenu);
-        getLambdaLoginPage().loginBtn.click();
+        getLambdaLoginPage().clickLoginMenuBtn();
 
         Assert.assertTrue(driver.getCurrentUrl().contains("account/login"));
 
         getLambdaLoginPage().seteMail("senatest2@gmail.com");
         getLambdaLoginPage().setPassWord("123456"); //yanlış
-        getLambdaLoginPage().setSubmitButton();
+        getLambdaLoginPage().clickSubmitButton();
 
         Assert.assertFalse(driver.getCurrentUrl().contains("account/account"));
     }
@@ -54,18 +53,16 @@ public class LambdaLoginTest extends PomManager{
         Assert.assertTrue(driver.getCurrentUrl().contains(url));
 
         BrowserUtils.moveToElement(getHomepage().myAccountMenu);
-        getLambdaLoginPage().loginBtn.click();
+        getLambdaLoginPage().clickLoginMenuBtn();
 
         Assert.assertTrue(driver.getCurrentUrl().contains("account/login"));
 
-        getLambdaLoginPage().eMail.sendKeys("senatest29@gmail.com"); //yanlış
-        getLambdaLoginPage().passWord.sendKeys("12345");
-        getLambdaLoginPage().submitButton.click();
-
         getLambdaLoginPage().seteMail("senatest29@gmail.com"); //yanlış
         getLambdaLoginPage().setPassWord("12345");
-        getLambdaLoginPage().setSubmitButton();
+        getLambdaLoginPage().clickSubmitButton();
 
         Assert.assertFalse(driver.getCurrentUrl().contains("account/account"));
     }
+
+
 }
